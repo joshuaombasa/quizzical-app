@@ -1,16 +1,25 @@
-import { useState } from 'react'
+import React from 'react'
+
 
 import Homepage from './Homepage'
+import Quiz from './Quiz'
 import '../styles/App.css'
 
+
+
 function App() {
-  const [count, setCount] = useState(0)
+  const [isQuizStarted, setIsQuizStarted] = React.useState(false)
+
+  function startQuiz() {
+    setIsQuizStarted(prevIsQuizStarted => !prevIsQuizStarted)
+  }
 
   return (
     <>
-      <Homepage />
+      {isQuizStarted === false ? <Homepage startQuiz={startQuiz} /> :  <Quiz />}
     </>
   )
 }
 
 export default App
+ 

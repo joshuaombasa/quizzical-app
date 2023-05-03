@@ -3,7 +3,7 @@ import React from 'react'
 export default function Answer(props) {
     const [isClicked, setIsClicked] = React.useState(false)
 
-    console.log(props)
+    
 
     function handleClick() {
         setIsClicked((prevIsClicked) => !prevIsClicked)

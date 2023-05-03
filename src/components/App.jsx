@@ -16,9 +16,13 @@ function App() {
         .then(res => res.json())
         .then(data => {
           setQuizData(data.results)
-          // console.log(data.results[0])
+          console.log(data.results[0])
         })
   },[])
+
+  function evaluteQuiz(id) {
+    console.log(id)
+  }
 
   function startQuiz() {
     setIsQuizStarted(prevIsQuizStarted => !prevIsQuizStarted)
@@ -33,6 +37,7 @@ function App() {
       :
       <Quiz 
         quizData={quizData}
+        evaluteQuiz={evaluteQuiz}
       />}
     </>
   )

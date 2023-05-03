@@ -4,8 +4,9 @@ import Answer from "./Answer";
 export default function Question(props) {
    
     
-    const allAnswers = props.answers
-    console.log(allAnswers)
+    const [allAnswers, setAllAnswers] = React.useState(props.answers)
+
+    // console.log(allAnswers)
 
     const answersJsx = props.answers.map((item) => {
         return  <Answer 

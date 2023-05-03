@@ -23,7 +23,7 @@ body {
   color: #293264;
 }
 
-button {
+.start-quiz-btn {
   width: 193px;
   height: 52px;
   background: #4D5B9E;
@@ -35,4 +35,38 @@ button {
   line-height: 19px;
   text-align: center;
   color: #F5F7FB;
+}
+
+.quiz--container {
+  max-width: 60%;
+  margin: 0 auto;
+}
+
+.question {
+  font-family: 'Karla';
+  width: 900px;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 19px;
+  color: #293264;
+}
+
+.answer-box {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.answer-btn {
+  min-width: 65.92px;
+  height: 20.65px;
+  border: 0.794239px solid #4D5B9E;
+  border-radius: 7.94239px;
+  background: #F5F7FB;
+  display: flex;
+  padding: 5px 10px;
+}
+
+.btn-text {
+  margin: auto;
 }

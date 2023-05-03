@@ -1,13 +1,19 @@
 import React from "react";
 
 import Answer from "./Answer";
-export default function Question() {
+export default function Question(props) {
+    console.log(props)
+    const answersJsx = props.answers.map((item) => {
+        return  <Answer answerText={item} />
+    })
+
     return (
         <div className="question--container">
-            <h3 className="question">How would one say goodbye in Spanish?</h3>
+            <h3 className="question">{props.questionText}</h3>
             <div className="answer-box">
-                <Answer />
+                {answersJsx}
             </div>
+            <br />
         </div>
     )
 }

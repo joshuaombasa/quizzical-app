@@ -16,7 +16,6 @@ export default function Question(props) {
                     correctAnswerId={props.id}
                     id={item === props.correctAnswer?  props.id : uuid()}
                     correctAnswer={props.correctAnswer}
-                    evaluteQuiz={props.evaluteQuiz}
                     checkAnswer={checkAnswer}
                     />
                    

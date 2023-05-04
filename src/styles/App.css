@@ -44,7 +44,7 @@ body {
 
 .question {
   font-family: 'Karla';
-  width: 900px;
+  width: 1200px;
   font-weight: 700;
   font-size: 18px;
   line-height: 19px;
@@ -54,12 +54,13 @@ body {
 .answer-box {
   display: flex;
   flex-direction: row;
+  width: 1200px;
   gap: 10px;
 }
 
 .answer-btn {
   min-width: 65.92px;
-  height: 20.65px;
+  min-height: 20.65px;
   border: 0.794239px solid #4D5B9E;
   border-radius: 7.94239px;
   background: #F5F7FB;

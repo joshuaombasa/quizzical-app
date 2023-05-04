@@ -1,4 +1,5 @@
 import React from "react";
+import uuid from 'react-uuid';
 
 import Answer from "./Answer";
 export default function Question(props) {
@@ -6,16 +7,24 @@ export default function Question(props) {
     
     const [allAnswers, setAllAnswers] = React.useState(props.answers)
 
-    // console.log(allAnswers)
+    
 
-    const answersJsx = props.answers.map((item) => {
+    const answersJsx = allAnswers.map((item) => {
         return  <Answer 
                     answerText={item} 
-                    id={props.id}
+                    key={uuid()}
+                    correctAnswerId={props.id}
+                    id={item === props.correctAnswer?  props.id : uuid()}
+                    correctAnswer={props.correctAnswer}
                     evaluteQuiz={props.evaluteQuiz}
+                    checkAnswer={checkAnswer}
                     />
                    
     })
+
+    function checkAnswer(id) {
+        console.log(id ===  props.id)
+    }
 
     return (
         <div className="question--container">

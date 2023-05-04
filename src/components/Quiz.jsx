@@ -12,7 +12,6 @@ export default function Quiz(props) {
                     key={uuid()}
                     answers={[...item.incorrect_answers, item.correct_answer]}
                     correctAnswer={item.correct_answer}
-                    evaluteQuiz={props.evaluteQuiz}
                 />
     })
 

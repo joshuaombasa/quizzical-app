@@ -6,7 +6,8 @@ export default function Question(props) {
    
     
     const [allAnswers, setAllAnswers] = React.useState(props.answers)
-
+    
+    
     
 
     const answersJsx = allAnswers.map((item) => {

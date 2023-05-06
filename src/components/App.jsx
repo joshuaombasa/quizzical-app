@@ -20,9 +20,6 @@ function App() {
         })
   },[])
 
-  function evaluteQuiz(id) {
-    console.log(id)
-  }
 
   function startQuiz() {
     setIsQuizStarted(prevIsQuizStarted => !prevIsQuizStarted)
@@ -37,7 +34,6 @@ function App() {
       :
       <Quiz 
         quizData={quizData}
-        evaluteQuiz={evaluteQuiz}
       />}
     </>
   )

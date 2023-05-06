@@ -5,7 +5,15 @@ import Question from './Question'
 
 export default function Quiz(props) {
 
-    
+    const [questionsData, setQuestionsData] = React.useState(
+        {
+            questionItself: '',
+            isAnwered: false,
+            answers: [],
+            correctAns: ''
+        }
+    )
+
 
     const questionsJsx = props.quizData.map((item) => {
         return  <Question 
@@ -14,12 +22,18 @@ export default function Quiz(props) {
                     key={uuid()}
                     answers={[...item.incorrect_answers, item.correct_answer]}
                     correctAnswer={item.correct_answer}
+                    evaluteQuiz={evaluteQuiz}
                 />
     })
+
+    function evaluteQuiz() {
+        
+      }
 
     return (
         <div className="quiz--container">
             {questionsJsx}
+            <button className="quiz-btn" onClick={evaluteQuiz}>Check answers</button>
         </div>
     )
 }

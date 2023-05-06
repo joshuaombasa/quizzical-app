@@ -6,8 +6,8 @@ export default function Question(props) {
    
     
     const [allAnswers, setAllAnswers] = React.useState(props.answers)
-    
-    
+
+    const [count, setCount] = React.useState(0)
     
 
     const answersJsx = allAnswers.map((item) => {
@@ -23,8 +23,13 @@ export default function Question(props) {
     })
 
     function checkAnswer(id) {
-        console.log(id ===  props.id)
+        id === props.id ? 
+        setCount((prevCount) => prevCount + 1):
+        {}
+        
     }
+
+    console.log(count)
 
     return (
         <div className="question--container">

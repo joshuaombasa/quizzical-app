@@ -7,7 +7,6 @@ export default function Answer(props) {
 
     function handleClick(id) {
         setIsAnswered(prevIsAnswered => !prevIsAnswered)
-        
         props.checkAnswer(props.id)
     }
 
@@ -15,7 +14,8 @@ export default function Answer(props) {
         const styles = {backgroundColor: correctAnswerId === props.id ? "#94D7A2": "white"}
     }
 
-    const styles = {backgroundColor: isAnswered ? "#D6DBF5": "white"}
+    // const styles = {backgroundColor: isAnswered ? "#D6DBF5": "white"}
+    const styles = {backgroundColor: correctAnswerId === props.id ? "#94D7A2": "white"}
 
     
     return (

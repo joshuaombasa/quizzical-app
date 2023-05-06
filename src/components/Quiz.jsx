@@ -5,6 +5,8 @@ import Question from './Question'
 
 export default function Quiz(props) {
 
+    
+
     const questionsJsx = props.quizData.map((item) => {
         return  <Question 
                     questionText={item.question} 

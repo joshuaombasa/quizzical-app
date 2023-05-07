@@ -30,7 +30,7 @@ export default function Quiz(props) {
                 {props.isQuizOver && <h3 className='score-message'>You scored {props.scoreCount}/10 corrrect answers</h3>}
                 {
                     props.isplayAgain ?
-                        <button className="quiz-btn" onClick={props.startQuiz}>
+                        <button className="quiz-btn" onClick={props.reload}>
                             Play again
                         </button>
                         : <button className="quiz-btn" onClick={props.questionIsAnsweredToggle}>

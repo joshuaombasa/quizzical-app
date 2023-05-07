@@ -9,7 +9,9 @@ import '../styles/App.css'
 function App() {
   const [isQuizStarted, setIsQuizStarted] = React.useState(false)
 
-  const [quizData, setQuizData] = React.useState()
+  const [scoreCount, setScoreCount] = React.useState()
+
+  const [quizData, setQuizData] = React.useState([])
 
 
 
@@ -52,18 +54,39 @@ function App() {
       })
   }, [])
 
- 
+  React.useEffect(() => {
+    const trackedData = quizData.map((question) => {
+      return question.answers.map((answer) => {
+        return answer.isChosen && answer.id === question.id
+      })
+    })
+
+    const flatTrackedData = trackedData.flat()
+
+    let count = 0
+    for (let i=0; i<flatTrackedData.length; i++) {
+      if (flatTrackedData[i] === true) {
+        count ++
+      }
+    }
+
+    setScoreCount(count)
+  },[quizData])
+
+  console.log(scoreCount)
 
   function toggleChosenAnswer(answerId, questionId) {
     setQuizData(prevQuizData => {
 
       return prevQuizData.map(item => {
-        return item.id === questionId ? {...item, 
-          answers: 
-          item.answers.map(ans => {
-            return ans.id === answerId ? {...ans, isChosen: !ans.isChosen} : {...ans, isChosen: false}
-          })} 
-        : item
+        return item.id === questionId ? {
+          ...item,
+          answers:
+            item.answers.map(ans => {
+              return ans.id === answerId ? { ...ans, isChosen: !ans.isChosen } : { ...ans, isChosen: false }
+            })
+        }
+          : item
       })
     })
 
@@ -72,14 +95,12 @@ function App() {
   function questionIsAnsweredToggle() {
     setQuizData(prevQuizData => {
       return prevQuizData.map(item => {
-        return {...item, isAnwered: !item.isAnwered}
+        return { ...item, isAnwered: !item.isAnwered }
       })
     })
   }
 
-  function displayAnswer() {
 
-  }
 
   function startQuiz() {
     setIsQuizStarted(prevIsQuizStarted => !prevIsQuizStarted)
@@ -96,6 +117,7 @@ function App() {
           quizData={quizData}
           toggleChosenAnswer={toggleChosenAnswer}
           questionIsAnsweredToggle={questionIsAnsweredToggle}
+          scoreCount={scoreCount}
         />}
     </>
   )

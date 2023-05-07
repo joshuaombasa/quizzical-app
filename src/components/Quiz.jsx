@@ -13,10 +13,11 @@ export default function Quiz(props) {
         return  <Question 
                     questionText={item.question} 
                     isAnwered={item.isAnswered} 
-                    id={item.id} 
+                    questionId={item.id} 
                     key={item.id}
                     answers={item.answers}
                     correctAnswer={item.correctAnswer}
+                    toggleChosenAnswer={props.toggleChosenAnswer}
                 />
     })
 

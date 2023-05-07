@@ -21,16 +21,7 @@ export default function Answer(props) {
         }
     }
 
-    // const styles = props.isAnwered 
-    // ? 
-    // {backgroundColor: 
-    //     props.isChosen ? "red":
-    //     props.id === props.questionId ? "green" : ''  }
-    // :{backgroundColor: props.isChosen ? "#D6DBF5": "white"}
-   
-    
-   
-    
+
     return (
         <div  
         style={styles}

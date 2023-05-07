@@ -9,13 +9,13 @@ import '../styles/App.css'
 function App() {
   const [isQuizStarted, setIsQuizStarted] = React.useState(false)
 
-  const [isQuizOver, setIsQuizOver]  = React.useState(false)
+  const [isQuizOver, setIsQuizOver] = React.useState(false)
 
   const [scoreCount, setScoreCount] = React.useState()
 
   const [quizData, setQuizData] = React.useState([])
 
-
+  const [isplayAgain, setPlayAgain] = React.useState(false)
 
   React.useEffect(() => {
     fetch("https://opentdb.com/api.php?amount=10&category=18&difficulty=easy&type=multiple")
@@ -56,6 +56,11 @@ function App() {
       })
   }, [])
 
+  
+
+
+ 
+
   React.useEffect(() => {
     const trackedData = quizData.map((question) => {
       return question.answers.map((answer) => {
@@ -66,14 +71,14 @@ function App() {
     const flatTrackedData = trackedData.flat()
 
     let count = 0
-    for (let i=0; i<flatTrackedData.length; i++) {
+    for (let i = 0; i < flatTrackedData.length; i++) {
       if (flatTrackedData[i] === true) {
-        count ++
+        count++
       }
     }
 
     setScoreCount(count)
-  },[quizData])
+  }, [quizData])
 
   console.log(scoreCount)
 
@@ -102,14 +107,18 @@ function App() {
     })
 
     endQuiz()
+    restartGame()
   }
 
-  function endQuiz()  {
+  function endQuiz() {
     setIsQuizOver((prevIsQuizOver) => {
       return !prevIsQuizOver
     })
   }
 
+  function restartGame() {
+    setPlayAgain(prevIsPlayAgain => !prevIsPlayAgain)
+  }
 
 
   function startQuiz() {
@@ -129,6 +138,8 @@ function App() {
           questionIsAnsweredToggle={questionIsAnsweredToggle}
           scoreCount={scoreCount}
           isQuizOver={isQuizOver}
+          isplayAgain={isplayAgain}
+          startQuiz={startQuiz}
         />}
     </>
   )

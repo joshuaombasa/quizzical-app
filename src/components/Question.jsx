@@ -4,18 +4,15 @@ import uuid from 'react-uuid';
 import Answer from "./Answer";
 export default function Question(props) {
    
-    console.log(props)
-    
-    const [allAnswers, setAllAnswers] = React.useState(props.answers)
 
-
-    
-
-    const answersJsx = allAnswers.map((item) => {
+    const answersJsx = props.answers.map((item) => {
         return  <Answer 
+                    questionId={props.questionId}
                     answerText={item.value} 
                     key={item.id}
                     id={item.id}
+                    isChosen={item.isChosen}
+                    toggleChosenAnswer={props.toggleChosenAnswer}
                     />
                    
     })

@@ -32,7 +32,7 @@ function App() {
           const updatedAnswersData = item.answers.map(ans => {
             return {
               value: ans,
-              id: uuid(),
+              id: item.correctAnswer === ans ? item.id : uuid(),
               isChosen: false
             }
           })
@@ -47,12 +47,12 @@ function App() {
 
         setQuizData(updatedQuizData)
 
-        // console.log(data.results[0])
+        console.log(data.results[0])
 
       })
   }, [])
 
-  
+ 
 
   function toggleChosenAnswer(answerId, questionId) {
     setQuizData(prevQuizData => {
@@ -67,9 +67,17 @@ function App() {
       })
     })
 
+  }
 
+  function questionIsAnsweredToggle() {
+    setQuizData(prevQuizData => {
+      return prevQuizData.map(item => {
+        return {...item, isAnwered: !item.isAnwered}
+      })
+    })
+  }
 
-
+  function displayAnswer() {
 
   }
 
@@ -87,6 +95,7 @@ function App() {
         <Quiz
           quizData={quizData}
           toggleChosenAnswer={toggleChosenAnswer}
+          questionIsAnsweredToggle={questionIsAnsweredToggle}
         />}
     </>
   )

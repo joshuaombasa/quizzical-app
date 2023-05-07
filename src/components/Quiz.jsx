@@ -7,35 +7,25 @@ import Question from './Question'
 
 export default function Quiz(props) {
 
-    const [questionsData, setQuestionsData] = React.useState(
-        {
-            questionItself: '',
-            isAnwered: false,
-            answers: [],
-            correctAns: ''
-        }
-    )
 
 
     const questionsJsx = props.quizData.map((item) => {
         return  <Question 
                     questionText={item.question} 
-                    id={uuid()} 
-                    key={uuid()}
-                    answers={[...item.incorrect_answers, item.correct_answer]}
-                    correctAnswer={item.correct_answer}
-                    evaluteQuiz={evaluteQuiz}
+                    isAnwered={item.isAnswered} 
+                    id={item.id} 
+                    key={item.id}
+                    answers={item.answers}
+                    correctAnswer={item.correctAnswer}
                 />
     })
 
-    function evaluteQuiz() {
-        
-      }
+   
 
     return (
         <div className="quiz--container">
             {questionsJsx}
-            <button className="quiz-btn" onClick={evaluteQuiz}>Check answers</button>
+            <button className="quiz-btn">Check answers</button>
         </div>
     )
 }

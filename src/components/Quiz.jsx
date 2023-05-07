@@ -7,12 +7,12 @@ import Question from './Question'
 
 export default function Quiz(props) {
 
-
+   
 
     const questionsJsx = props.quizData.map((item) => {
         return  <Question 
                     questionText={item.question} 
-                    isAnwered={item.isAnswered} 
+                    isAnwered={item.isAnwered} 
                     questionId={item.id} 
                     key={item.id}
                     answers={item.answers}
@@ -26,7 +26,7 @@ export default function Quiz(props) {
     return (
         <div className="quiz--container">
             {questionsJsx}
-            <button className="quiz-btn">Check answers</button>
+            <button className="quiz-btn" onClick={props.questionIsAnsweredToggle}>Check answers</button>
         </div>
     )
 }

@@ -9,7 +9,7 @@ import '../styles/App.css'
 function App() {
   const [isQuizStarted, setIsQuizStarted] = React.useState(false)
 
-  const [isQuizOver, setIsQuizOver]  = React.useState(fals)
+  const [isQuizOver, setIsQuizOver]  = React.useState(false)
 
   const [scoreCount, setScoreCount] = React.useState()
 
@@ -100,6 +100,8 @@ function App() {
         return { ...item, isAnwered: !item.isAnwered }
       })
     })
+
+    endQuiz()
   }
 
   function endQuiz()  {
@@ -127,7 +129,6 @@ function App() {
           questionIsAnsweredToggle={questionIsAnsweredToggle}
           scoreCount={scoreCount}
           isQuizOver={isQuizOver}
-          endQuiz={endQuiz}
         />}
     </>
   )

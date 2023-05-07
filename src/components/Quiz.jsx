@@ -26,7 +26,10 @@ export default function Quiz(props) {
     return (
         <div className="quiz--container">
             {questionsJsx}
+            <div className="bottom-container">
+            <h3 className='score-message'>You scored {props.scoreCount}/10 corrrect answers</h3>
             <button className="quiz-btn" onClick={props.questionIsAnsweredToggle}>Check answers</button>
+            </div>
         </div>
     )
 }

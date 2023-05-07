@@ -4,32 +4,22 @@ import uuid from 'react-uuid';
 import Answer from "./Answer";
 export default function Question(props) {
    
+    console.log(props)
     
     const [allAnswers, setAllAnswers] = React.useState(props.answers)
 
-    const [count, setCount] = React.useState(0)
+
     
 
     const answersJsx = allAnswers.map((item) => {
         return  <Answer 
-                    answerText={item} 
-                    key={uuid()}
-                    correctAnswerId={props.id}
-                    id={item === props.correctAnswer?  props.id : uuid()}
-                    correctAnswer={props.correctAnswer}
-                    checkAnswer={checkAnswer}
+                    answerText={item.value} 
+                    key={item.id}
+                    id={item.id}
                     />
                    
     })
 
-    function checkAnswer(id) {
-        id === props.id ? 
-        setCount((prevCount) => prevCount + 1):
-        {}
-        
-    }
-
-    console.log(count)
 
     return (
         <div className="question--container">

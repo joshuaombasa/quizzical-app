@@ -43,7 +43,7 @@ function App() {
 
           return {
             ...item,
-            answers: updatedAnswersData
+            answers: updatedAnswersData.slice().sort(() => Math.random() - 0.5)
           }
         })
 
@@ -123,6 +123,11 @@ function App() {
 
   function startQuiz() {
     setIsQuizStarted(prevIsQuizStarted => !prevIsQuizStarted)
+    
+  }
+
+  function reload() {
+    window.location.reload()
   }
 
   return (
@@ -140,6 +145,7 @@ function App() {
           isQuizOver={isQuizOver}
           isplayAgain={isplayAgain}
           startQuiz={startQuiz}
+          reload={reload}
         />}
     </>
   )

@@ -39,7 +39,7 @@ body {
 
 .quiz--container {
   max-width: 60%;
-  margin: 0 auto;
+  margin: 100px auto;
 }
 
 .question {

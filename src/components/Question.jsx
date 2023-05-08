@@ -1,6 +1,6 @@
 import React from "react";
 import uuid from 'react-uuid';
-
+import he from 'he';
 import Answer from "./Answer";
 export default function Question(props) {
    
@@ -22,7 +22,7 @@ export default function Question(props) {
 
     return (
         <div className="question--container">
-            <h3 className="question">{props.questionText}</h3>
+            <h3 className="question">{he.decode(props.questionText)}</h3>
             <div className="answer-box">
                 {answersJsx}
             </div>

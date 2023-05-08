@@ -1,5 +1,5 @@
 import React from 'react'
-
+import he from 'he'
 export default function Answer(props) {
     
      
@@ -27,7 +27,7 @@ export default function Answer(props) {
         style={styles}
         className="answer-btn" 
         onClick={() => props.toggleChosenAnswer(props.id, props.questionId)}>
-            <small className='btn-text'>{props.answerText}</small>
+            <small className='btn-text'>{he.decode(props.answerText)}</small>
         </div>
     )
 }

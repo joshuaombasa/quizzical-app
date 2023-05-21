@@ -7,7 +7,6 @@ import Quiz from './Quiz'
 import '../styles/App.css'
 
 
-
 function App() {
 
 // state to start quiz
@@ -72,10 +71,7 @@ function App() {
       })
   }, [])
 
-  
 
-
- 
 
   React.useEffect(() => {
     // we are mapping over the quizData state, the result is an array with other 10 arrays of length 4 inside

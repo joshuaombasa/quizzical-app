@@ -1,13 +1,8 @@
 import React from 'react'
-import uuid from 'react-uuid';
-import he from 'he'
+
 import Question from './Question'
 
-
-
 export default function Quiz(props) {
-
-
 
     const questionsJsx = props.quizData.map((item) => {
         return <Question
@@ -20,8 +15,6 @@ export default function Quiz(props) {
             toggleChosenAnswer={props.toggleChosenAnswer}
         />
     })
-
-
 
     return (
         <div className="quiz--container">
@@ -42,8 +35,6 @@ export default function Quiz(props) {
                         </button>
 
                 }
-
-
             </div>
         </div>
     )

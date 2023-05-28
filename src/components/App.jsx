@@ -76,7 +76,7 @@ function App() {
   React.useEffect(() => {
     // we are mapping over the quizData state, the result is an array with other 10 arrays of length 4 inside
     const trackedData = quizData.map((question) => {
-      // this goes dipper to map the answers
+      // this goes deeper to map the answers
       return question.answers.map((answer) => {
         // if the answers isChosen and its the right answer, return true, else false
         return answer.isChosen && answer.id === question.id
